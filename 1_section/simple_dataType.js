@@ -37,3 +37,34 @@ console.log(x == y) // true
 
 //다르다라는 표현은 != 
 console.log(x != y) // false
+
+// 배열
+let fruit = ["apple", "orange", "banana", "mango"]
+console.log(fruit)
+console.log(fruit[0])
+
+fruit[0] = "cherry"
+console.log(fruit)
+
+// pop
+fruit.pop()
+console.log(fruit)
+
+// push
+fruit.push("pineapple")
+console.log(fruit)
+
+// includes : 포함 여부
+console.log(fruit.includes("apple"))
+console.log(fruit.includes("banana"))
+
+// indexOf : 인덱스 번호
+console.log(fruit.indexOf("banana"))
+
+// slice : (시작점, 끝점), 끝점 미포함, 기존 배열 건드리지 않음
+console.log(fruit.slice(2))
+console.log(fruit.slice(1, 3))
+console.log(fruit)
+// splice : (시작점, 개수), 기존 배열 반영
+console.log(fruit.splice(2, 1))
+console.log(fruit)
