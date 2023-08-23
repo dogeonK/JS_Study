@@ -68,3 +68,26 @@ console.log(fruit)
 // splice : (시작점, 개수), 기존 배열 반영
 console.log(fruit.splice(2, 1))
 console.log(fruit)
+
+// Object
+let patient = {
+    name : "dogeon",
+    age : 25,
+    disease : "cold"
+}
+
+console.log(patient)
+console.log(patient.name)
+console.log(patient["age"])
+
+patient.name = "dg"
+console.log(patient)
+patient["age"] = 24
+console.log(patient)
+
+let patientList = [{name : "a", age : 13},
+{name: "b", age : 14}, {name : "c", age : 15}]
+
+console.log(patientList)
+console.log(patientList[0])
+console.log(patientList[0].age)
