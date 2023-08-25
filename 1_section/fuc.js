@@ -19,7 +19,6 @@ function serveCoke() {
     console.log("콜라")
 }
 
-console.log()
-let result = makeBurger("새우", "s", 2)
 
+let result = makeBurger("새우", "s", 2)
 console.log(result)
