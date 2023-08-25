@@ -1,9 +1,3 @@
-
-// 번호 입력 -> go 버튼 누름
-
-
-
-// 리셋 버튼 누르면 게임 리셋
 // 5번의 기회 다쓰면 게임 끝남 -> 버튼 disable
 
 // 유저가 범위 밖(1~100) 숫자 입력하면 알려준다. 기회는 안깎음
@@ -13,8 +7,10 @@ let randomNumber = 0
 let playButton = document.getElementById("play-button")
 let userInput = document.getElementById("user-input")
 let resultArea = document.getElementById("result-area")
+let resetButton = document.getElementById("reset-button")
 
 playButton.addEventListener("click", play)
+resetButton.addEventListener("click", reset)
 
 // 랜덤 번호 생성
 function pickRandomNumber() {
@@ -35,4 +31,14 @@ function play() {
     else if (randomNumber < userValue) {
         resultArea.textContent = "Down!"
     }
+}
+
+// 리셋 버튼 누르면 게임 리셋
+function reset() {
+    // input 창 비우기
+    userInput.value = ""
+    // 새로운 랜덤 번호 생성
+    pickRandomNumber()
+
+    resultArea.textContent = "결과 값이 여기 나옵니다!"
 }
