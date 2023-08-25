@@ -8,6 +8,9 @@ let playButton = document.getElementById("play-button")
 let userInput = document.getElementById("user-input")
 let resultArea = document.getElementById("result-area")
 let resetButton = document.getElementById("reset-button")
+let chance = 5
+let chanceArea = document.getElementById("chance-area")
+let gameOver = false
 
 playButton.addEventListener("click", play)
 resetButton.addEventListener("click", reset)
@@ -22,6 +25,9 @@ function pickRandomNumber() {
 // 랜덤 번호 > 유저 번호 -> Up!
 function play() {
     let userValue = userInput.value
+
+    chance--;
+    chanceArea.textContent = `남은 기회 : ${chance}`
     if (randomNumber == userValue) {
         resultArea.textContent = "정답!"
     }
@@ -30,6 +36,13 @@ function play() {
     }
     else if (randomNumber < userValue) {
         resultArea.textContent = "Down!"
+    }
+
+    if (chance < 1) {
+        gameOver = true
+    }
+    if (gameOver) {
+        playButton.disabled = true
     }
 }
 
@@ -40,5 +53,9 @@ function reset() {
     // 새로운 랜덤 번호 생성
     pickRandomNumber()
 
+    playButton.disabled = false
+
+    chance = 5
+    chanceArea.textContent = `남은 기회 : ${chance}`
     resultArea.textContent = "결과 값이 여기 나옵니다!"
 }
