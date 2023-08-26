@@ -10,11 +10,16 @@ let history = []
 
 playButton.addEventListener("click", play)
 resetButton.addEventListener("click", reset)
+userInput.addEventListener("focus", function(){
+    userInput.value = ""
+})
 
 // 랜덤 번호 생성
 function pickRandomNumber() {
-    randomNumber = Math.floor(Math.random() * 100) + 1
+    randomNumber = Math.floor(Math.random() * 100) + 1;
 }
+
+pickRandomNumber()
 
 // 맞추면 -> 맞췄습니다!
 // 랜덤 번호 < 유저 번호 -> Down!
@@ -45,6 +50,7 @@ function play() {
 
     if (randomNumber == userValue) {
         resultArea.textContent = "정답!"
+        gameOver = true
     }
     else if (randomNumber > userValue) {
         resultArea.textContent = "Up!"
@@ -71,6 +77,8 @@ function reset() {
     pickRandomNumber()
 
     playButton.disabled = false
+    
+    history = []
 
     chance = 5
     chanceArea.textContent = `남은 기회 : ${chance}`
