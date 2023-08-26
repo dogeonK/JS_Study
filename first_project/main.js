@@ -29,11 +29,15 @@ function play() {
     }
 
     // 유저가 이미 입력한 숫자 입력하면 알려준다. 기회는 안깎음
-    for (let i = 0; i < history.length; i++) {
-        if (history[i] == userValue) {
-            resultArea.textContent = `이미 입력한 번호입니다! ${userValue}`
-            return
-        }
+    // for (let i = 0; i < history.length; i++) {
+    //     if (history[i] == userValue) {
+    //         resultArea.textContent = `이미 입력한 번호입니다! ${userValue}`
+    //         return
+    //     }
+    // }
+    if (history.includes(userValue)) {
+        resultArea.textContent = `이미 입력한 번호입니다! ${userValue}`
+        return
     }
 
     chance--;
