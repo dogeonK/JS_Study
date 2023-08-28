@@ -7,9 +7,14 @@ let filterList = [];
 let underLine = document.getElementById('under-line')
 
 addButton.addEventListener("click", addTask);
+taskInput.addEventListener("keydown", function(event) {
+    if (event.keyCode === 13) {
+        addTask();
+    }
+});
 
 for (let i = 1; i < tabs.length; i++) {
-    tabs[i].addEventListener("click", function(event){filter(event)})
+    tabs[i].addEventListener("click", function(event){filter(event)});
 }
 
 // 유저가 값 입력
@@ -69,7 +74,7 @@ function toggleComplete(id) {
             break;
         }
     }
-    render();
+    filter();
 }
 
 // task id 랜덤 생성
@@ -85,19 +90,21 @@ function deleteTask(id) {
             break;
         }
     }
-    render();
+    filter();
 }
 
 // All, Not Done, Done 클릭 -> under-line 이동
 // Done 탭에는 끝난 아이템만, Not Done 탭은 진행 중인 아이템만
 // All 탭은 전체 아이템
 function filter(event) {
-    mode = event.target.id;
+    if (event) {
+        mode = event.target.id;
+        underLine.style.left = event.currentTarget.offsetLeft + "px";
+        underLine.style.width = event.currentTarget.offsetWidth + "px";
+    }
+    
     filterList = [];
-
-    underLine.style.left = event.currentTarget.offsetLeft + "px";
-    underLine.style.width = event.currentTarget.offsetWidth + "px";
-
+    
     if (mode == 'all') {
         render();
     }
