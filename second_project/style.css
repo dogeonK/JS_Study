@@ -50,3 +50,7 @@ body {
     border: 0;
     background-color: transparent;
 }
+
+.task-tabs div {
+    cursor: pointer;
+}
