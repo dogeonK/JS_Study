@@ -4,6 +4,7 @@ let taskList = [];
 let tabs = document.querySelectorAll('.task-tabs div');
 let mode = 'all';
 let filterList = [];
+let underLine = document.getElementById('under-line')
 
 addButton.addEventListener("click", addTask);
 
@@ -93,6 +94,9 @@ function deleteTask(id) {
 function filter(event) {
     mode = event.target.id;
     filterList = [];
+
+    underLine.style.left = event.currentTarget.offsetLeft + "px";
+    underLine.style.width = event.currentTarget.offsetWidth + "px";
 
     if (mode == 'all') {
         render();
