@@ -1,4 +1,3 @@
-// delete 버튼 클릭 -> 할 일 삭제
 // All, Not Done, Done 클릭 -> under-line 이동
 // Done 탭에는 끝난 아이템만, Not Done 탭은 진행 중인 아이템만
 // All 탭은 전체 아이템
@@ -31,7 +30,7 @@ function render() {
             <div class="task-done">${taskList[i].taskContent}</div>
             <div>
                 <button onclick="toggleComplete('${taskList[i].id}')">Check</button>
-                <button>Delete</button>
+                <button onclick="deleteTask('${taskList[i].id}')">Delete</button>
             </div>
         </div>`;
         }
@@ -40,7 +39,7 @@ function render() {
             <div>${taskList[i].taskContent}</div>
             <div>
                 <button onclick="toggleComplete('${taskList[i].id}')">Check</button>
-                <button>Delete</button>
+                <button onclick="deleteTask('${taskList[i].id}')">Delete</button>
             </div>
         </div>`;
         }
@@ -64,4 +63,15 @@ function toggleComplete(id) {
 // task id 랜덤 생성
 function randomIDGenerate() {
     return '_' + Math.random().toString(36).substr(2, 9);
+}
+
+// delete 버튼 클릭 -> 할 일 삭제
+function deleteTask(id) {
+    for (let i = 0; i < taskList.length; i++) {
+        if (taskList[i].id == id) {
+            taskList.splice(i, 1);
+            break;
+        }
+    }
+    render();
 }
