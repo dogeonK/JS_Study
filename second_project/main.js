@@ -29,8 +29,8 @@ function render() {
             resultHTML += `<div class="task">
             <div class="task-done">${taskList[i].taskContent}</div>
             <div>
-                <button onclick="toggleComplete('${taskList[i].id}')">Check</button>
-                <button onclick="deleteTask('${taskList[i].id}')">Delete</button>
+                <button class="fa-solid fa-rotate-left" onclick="toggleComplete('${taskList[i].id}')"></button>
+                <button class="fa-solid fa-trash" style="color: #ff0000;" onclick="deleteTask('${taskList[i].id}')"></button>
             </div>
         </div>`;
         }
@@ -38,8 +38,8 @@ function render() {
             resultHTML += `<div class="task">
             <div>${taskList[i].taskContent}</div>
             <div>
-                <button onclick="toggleComplete('${taskList[i].id}')">Check</button>
-                <button onclick="deleteTask('${taskList[i].id}')">Delete</button>
+                <button class="fa-solid fa-check" style="color: #11ff00;" onclick="toggleComplete('${taskList[i].id}')"></button>
+                <button class="fa-solid fa-trash" style="color: #ff0000;" onclick="deleteTask('${taskList[i].id}')"></button>
             </div>
         </div>`;
         }

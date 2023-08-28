@@ -45,3 +45,8 @@ body {
 .task-done {
     text-decoration: line-through;
 }
+
+#task-board button {
+    border: 0;
+    background-color: transparent;
+}
