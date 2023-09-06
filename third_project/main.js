@@ -5,6 +5,6 @@ const getLatestNews = ()=>{
         'https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&topic=tech'
     );
     let header = new Headers({'x-api-key': `${API_KEY}`});
-}
 
-getLatestNews()
+    let response = fetch(url, {headers: header});
+}
