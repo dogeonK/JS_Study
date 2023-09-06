@@ -355,4 +355,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+third_project/apikey.js
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,node,python,visualstudiocode
