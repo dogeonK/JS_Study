@@ -24,3 +24,8 @@
 .menus button:hover {
     background-color: beige;
 }
+
+.news-img-size {
+    max-width: 100%;
+    max-height: 250px;
+}
