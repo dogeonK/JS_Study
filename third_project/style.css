@@ -75,3 +75,16 @@
     background-color: beige;
     border-radius: 3px;
 }
+
+.hide {
+    display: none;
+}
+
+@media screen and (max-width: 63rem) {
+    .hide {
+        display: inline;
+    }
+    .menus {
+        display: none;
+    }
+}
