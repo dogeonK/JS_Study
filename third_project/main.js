@@ -47,7 +47,7 @@ const render = () => {
         <div class="col-lg-8">
             <h2>${item.title}</h2>
             <p>
-                ${item.summary}
+                ${item.summary.slice(0, 201) + "..."}
             </p>
             <div>
                 ${item.rights} * ${item.published_date}
