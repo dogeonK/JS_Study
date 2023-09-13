@@ -68,7 +68,7 @@ const render = () => {
             <h2>${item.title}</h2>
             <p>
                 ${
-                    item.summary == null || news.summary == "" ? "내용 없음" : item.summary.length > 200 ? item.summary.slice(0, 200) + "..." : item.summary
+                    item.summary == null || item.summary == "" ? "내용 없음" : item.summary.length > 200 ? item.summary.slice(0, 200) + "..." : item.summary
                 }
             </p>
             <div>
