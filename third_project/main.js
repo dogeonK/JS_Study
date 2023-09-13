@@ -2,6 +2,7 @@ import apiKey from './apikey.js';
 const API_KEY = apiKey;
 
 let news = [];
+
 let menus = document.querySelectorAll(".menus button");
 menus.forEach(menu => menu.addEventListener("click", (event) => {
     getNewsByTopic(event);
@@ -43,6 +44,24 @@ const getLatestNews = async()=>{
 const getNewsByTopic = async(event) => {
     let url = new URL(
         `https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&topic=${event.target.textContent.toLowerCase()}`
+    )
+
+    let header = new Headers({'x-api-key': `${API_KEY}`});
+
+    let response = await fetch(url, {headers: header});
+    let data = await response.json();
+
+    news = data.articles;
+    console.log(news);
+
+    render();
+}
+
+window.getNewsBySearch = async() => {
+    let searchInput = document.getElementById("search-input").value;
+
+    let url = new URL(
+        `https://api.newscatcherapi.com/v2/search?q=${searchInput}&countries=KR&page_size=1`
     )
 
     let header = new Headers({'x-api-key': `${API_KEY}`});
