@@ -42,15 +42,17 @@ const render = () => {
     newsHTML = news.map(item => {
         return `<div class="row news">
         <div class="col-lg-4">
-            <img class="news-img-size" src="${item.media}" alt="">
+            <img class="news-img-size" src="${item.media || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqEWgS0uxxEYJ0PsOb2OgwyWvC0Gjp8NUdPw&usqp=CAU"}" alt="">
         </div>
         <div class="col-lg-8">
             <h2>${item.title}</h2>
             <p>
-                ${item.summary.slice(0, 201) + "..."}
+                ${
+                    item.summary == null || news.summary == "" ? "내용 없음" : item.summary.length > 200 ? item.summary.slice(0, 200) + "..." : item.summary
+                }
             </p>
             <div>
-                ${item.rights} * ${item.published_date}
+                ${item.rights || "no source"} * ${item.published_date}
             </div>
         </div>
     </div>`
