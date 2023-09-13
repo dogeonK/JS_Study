@@ -2,6 +2,10 @@ import apiKey from './apikey.js';
 const API_KEY = apiKey;
 
 let news = [];
+let menus = document.querySelectorAll(".menus button");
+menus.forEach(menu => menu.addEventListener("click", (event) => {
+    getNewsByTopic(event);
+}))
 
 window.openNav = () => {
     document.getElementById("mySidenav").style.width = "250px";
@@ -23,8 +27,24 @@ window.openSearchBox = () => {
 
 const getLatestNews = async()=>{
     let url = new URL(
-        'https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&topic=tech'
+        'https://api.newscatcherapi.com/v2/latest_headlines?countries=KR'
     );
+    let header = new Headers({'x-api-key': `${API_KEY}`});
+
+    let response = await fetch(url, {headers: header});
+    let data = await response.json();
+
+    news = data.articles;
+    console.log(news);
+
+    render();
+}
+
+const getNewsByTopic = async(event) => {
+    let url = new URL(
+        `https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&topic=${event.target.textContent.toLowerCase()}`
+    )
+
     let header = new Headers({'x-api-key': `${API_KEY}`});
 
     let response = await fetch(url, {headers: header});
