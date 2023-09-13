@@ -52,7 +52,7 @@ const render = () => {
                 }
             </p>
             <div>
-                ${item.rights || "no source"} * ${item.published_date}
+                ${item.rights || "no source"} / ${moment(item.published_date).fromNow()}
             </div>
         </div>
     </div>`
