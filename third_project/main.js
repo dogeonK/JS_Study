@@ -31,10 +31,9 @@ window.openSearchBox = () => {
     }
 }
 
-const getLatestNews = async()=>{
-    let url = new URL(
-        'https://api.newscatcherapi.com/v2/latest_headlines?countries=KR'
-    );
+let url;
+
+const getNews = async() => {
     let header = new Headers({'x-api-key': `${API_KEY}`});
 
     let response = await fetch(url, {headers: header});
@@ -46,38 +45,30 @@ const getLatestNews = async()=>{
     render();
 }
 
+const getLatestNews = async()=>{
+    url = new URL(
+        'https://api.newscatcherapi.com/v2/latest_headlines?countries=KR'
+    );
+    
+    getNews();
+}
+
 const getNewsByTopic = async(event) => {
-    let url = new URL(
+    url = new URL(
         `https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&topic=${event.target.textContent.toLowerCase()}`
-    )
+    );
 
-    let header = new Headers({'x-api-key': `${API_KEY}`});
-
-    let response = await fetch(url, {headers: header});
-    let data = await response.json();
-
-    news = data.articles;
-    console.log(news);
-
-    render();
+    getNews();
 }
 
 window.getNewsBySearch = async() => {
     let searchInput = document.getElementById("search-input").value;
 
-    let url = new URL(
+    url = new URL(
         `https://api.newscatcherapi.com/v2/search?q=${searchInput}&countries=KR&page_size=1`
-    )
+    );
 
-    let header = new Headers({'x-api-key': `${API_KEY}`});
-
-    let response = await fetch(url, {headers: header});
-    let data = await response.json();
-
-    news = data.articles;
-    console.log(news);
-
-    render();
+    getNews();
 }
 
 const render = () => {
