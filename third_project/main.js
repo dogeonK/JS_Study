@@ -8,6 +8,11 @@ menus.forEach(menu => menu.addEventListener("click", (event) => {
     getNewsByTopic(event);
 }))
 
+let sideMenus = document.querySelectorAll(".side-menu-list button");
+sideMenus.forEach(sideMenus => sideMenus.addEventListener("click", (event) => {
+    getNewsByTopic(event);
+}))
+
 window.openNav = () => {
     document.getElementById("mySidenav").style.width = "250px";
 };
