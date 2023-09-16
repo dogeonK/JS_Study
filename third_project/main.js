@@ -34,15 +34,32 @@ window.openSearchBox = () => {
 let url;
 
 const getNews = async() => {
-    let header = new Headers({'x-api-key': `${API_KEY}`});
+    try {
+        let header = new Headers({'x-api-key': `${API_KEY}`});
 
-    let response = await fetch(url, {headers: header});
-    let data = await response.json();
+        let response = await fetch(url, {headers: header});
+        let data = await response.json();
+    
+        if(response.status === 200) {
+            if(data.total_hits <= 0) {
+                throw new Error("검색된 결과가 없습니다.")
+            }
+            
+            news = data.articles;
+            console.log(news);
+            
+            render();
+        }
+        else{
+            throw new Error(data.message)
+        }
+    
+    }
+    catch(error) {
+        console.log(error.message);
+        errorRender(error.message);
+    }
 
-    news = data.articles;
-    console.log(news);
-
-    render();
 }
 
 const getLatestNews = async()=>{
@@ -94,6 +111,13 @@ const render = () => {
     })
 
     document.getElementById("news-board").innerHTML = newsHTML.join("");
+}
+
+const errorRender = (message) => {
+    let errorHTML = `<div class="alert alert-danger text-center" role="alert">
+    ${message}
+    </div>`
+    document.getElementById("news-board").innerHTML = errorHTML;
 }
 
 getLatestNews();
