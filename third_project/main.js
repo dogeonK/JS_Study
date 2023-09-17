@@ -49,6 +49,7 @@ const getNews = async() => {
             console.log(news);
             
             render();
+            console.log(data)
         }
         else{
             throw new Error(data.message)
@@ -64,7 +65,7 @@ const getNews = async() => {
 
 const getLatestNews = async()=>{
     url = new URL(
-        'https://api.newscatcherapi.com/v2/latest_headlines?countries=KR'
+        'https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&page_size=20'
     );
     
     getNews();
@@ -72,7 +73,7 @@ const getLatestNews = async()=>{
 
 const getNewsByTopic = async(event) => {
     url = new URL(
-        `https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&topic=${event.target.textContent.toLowerCase()}`
+        `https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&topic=${event.target.textContent.toLowerCase()}&page_size=20`
     );
 
     getNews();
@@ -82,7 +83,7 @@ window.getNewsBySearch = async() => {
     let searchInput = document.getElementById("search-input").value;
 
     url = new URL(
-        `https://api.newscatcherapi.com/v2/search?q=${searchInput}&countries=KR&page_size=1`
+        `https://api.newscatcherapi.com/v2/search?q=${searchInput}&countries=KR&page_size=20`
     );
 
     getNews();
@@ -119,5 +120,10 @@ const errorRender = (message) => {
     </div>`
     document.getElementById("news-board").innerHTML = errorHTML;
 }
+
+const pagination = () => {
+
+}
+
 
 getLatestNews();
