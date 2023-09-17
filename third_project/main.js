@@ -2,6 +2,8 @@ import apiKey from './apikey.js';
 const API_KEY = apiKey;
 
 let news = [];
+let page = 1;
+let total_pages = 0;
 
 let menus = document.querySelectorAll(".menus button");
 menus.forEach(menu => menu.addEventListener("click", (event) => {
@@ -48,8 +50,12 @@ const getNews = async() => {
             news = data.articles;
             console.log(news);
             
+            total_pages = data.total_pages;
+            page = data.page;
+
             render();
-            console.log(data)
+            pagination();
+            console.log(data);
         }
         else{
             throw new Error(data.message)
@@ -128,7 +134,16 @@ const errorRender = (message) => {
 }
 
 const pagination = () => {
+    let paginationHTML = '';
+    let pageGroup = Math.ceil(page/5);
+    let last = pageGroup * 5;
+    let first = last - 4;
 
+    for (let i = first; i <= last; i++) {
+        paginationHTML += `<li class="page-item"><a class="page-link" href="#">${i}</a></li>`
+    }
+
+    document.querySelector(".pagination").innerHTML = paginationHTML;
 }
 
 
