@@ -143,7 +143,7 @@ const pagination = () => {
     let first = last - 4;
 
     for (let i = first; i <= last; i++) {
-        paginationHTML += `<li class="page-item"><a class="page-link" href="#" onclick="moveToPage(${i})">${i}</a></li>`
+        paginationHTML += `<li class="page-item ${page==i?"active":""}"><a class="page-link" href="#" onclick="moveToPage(${i})">${i}</a></li>`
     }
 
     document.querySelector(".pagination").innerHTML = paginationHTML;
