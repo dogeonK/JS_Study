@@ -41,7 +41,7 @@
                 
                 <i class="fas fa-search icon-button" onclick="openSearchBox()" style="cursor: pointer;"></i>
                 <span id="input-area">
-                    <input type="text" id="search-input" placeholder="search" />
+                    <input type="text" id="search-input" placeholder="search" onkeypress="searchByEnter(event)"/>
                     <button class="search-button" onclick="getNewsBySearch()">Go</button>
                 </span>
             </div>

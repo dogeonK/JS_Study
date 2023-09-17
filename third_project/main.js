@@ -89,6 +89,12 @@ window.getNewsBySearch = async() => {
     getNews();
 }
 
+window.searchByEnter = (event) => {
+    if(event.keyCode === 13) {
+        getNewsBySearch();
+    }
+}
+
 const render = () => {
     let newsHTML = ``;
     
