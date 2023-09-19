@@ -143,7 +143,7 @@ const pagination = () => {
     let first = last - 4;
     
     paginationHTML = `<li class="page-item">
-        <a class="page-link" href="#" aria-label="Previous">
+        <a class="page-link" href="#" aria-label="Previous" onclick="moveToPage(${page-1})">
             <span aria-hidden="true">&lt;</span></a>
     </li>`
 
@@ -153,8 +153,8 @@ const pagination = () => {
 
 
     paginationHTML += `<li class="page-item">
-        <a class="page-link" href="#" aria-label="Next">
-            <span aria-hidden="true">&rt;</span>
+        <a class="page-link" href="#" aria-label="Next" onclick="moveToPage(${page+1})">
+            <span aria-hidden="true">&gt;</span>
         </a>
     </li>`
 
