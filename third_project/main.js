@@ -141,10 +141,22 @@ const pagination = () => {
     let pageGroup = Math.ceil(page/5);
     let last = pageGroup * 5;
     let first = last - 4;
+    
+    paginationHTML = `<li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&lt;</span></a>
+    </li>`
 
     for (let i = first; i <= last; i++) {
         paginationHTML += `<li class="page-item ${page==i?"active":""}"><a class="page-link" href="#" onclick="moveToPage(${i})">${i}</a></li>`
     }
+
+
+    paginationHTML += `<li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&rt;</span>
+        </a>
+    </li>`
 
     document.querySelector(".pagination").innerHTML = paginationHTML;
 }
