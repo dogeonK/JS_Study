@@ -140,7 +140,10 @@ const pagination = () => {
     let paginationHTML = '';
     let pageGroup = Math.ceil(page/5);
     let last = pageGroup * 5;
-    let first = last - 4;
+    if (last > total_pages) {
+        last = total_pages;
+    }
+    let first = last - 4 <= 0 ? 1 : last - 4;
     
     // first, previous page button
     page == 1 ? paginationHTML = '' : page <= 5 ? 
