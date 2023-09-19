@@ -143,9 +143,14 @@ const pagination = () => {
     let first = last - 4;
     
     paginationHTML = `<li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous" onclick="moveToPage(${1})">
+            <span aria-hidden="true">&laquo;</span></a>
+    </li>
+    <li class="page-item">
         <a class="page-link" href="#" aria-label="Previous" onclick="moveToPage(${page-1})">
             <span aria-hidden="true">&lt;</span></a>
     </li>`
+
 
     for (let i = first; i <= last; i++) {
         paginationHTML += `<li class="page-item ${page==i?"active":""}"><a class="page-link" href="#" onclick="moveToPage(${i})">${i}</a></li>`
@@ -155,6 +160,11 @@ const pagination = () => {
     paginationHTML += `<li class="page-item">
         <a class="page-link" href="#" aria-label="Next" onclick="moveToPage(${page+1})">
             <span aria-hidden="true">&gt;</span>
+        </a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next" onclick="moveToPage(${total_pages})">
+            <span aria-hidden="true">&raquo;</span>
         </a>
     </li>`
 
