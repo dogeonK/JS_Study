@@ -37,7 +37,7 @@
 # News Web (third_project)
 ![image](https://github.com/legobitna/noona-times/assets/21190318/1aecf5c4-4708-4f52-8e30-ea2e8b30a8f4)
 
-## User Story
+## 기능
 * 유저는 랜딩 페이지에서 뉴스를 볼 수 있다.
 * 각 뉴스에는 사진, 제목, 내용, 출처 및 날짜가 있다.
 * 사용자는 카테고리 별로 볼 수 있다.
