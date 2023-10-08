@@ -34,7 +34,7 @@
 * CSS
 * Vanila Javascript
 
-# Times News website (third_project)
+# News Web (third_project)
 ![image](https://github.com/legobitna/noona-times/assets/21190318/1aecf5c4-4708-4f52-8e30-ea2e8b30a8f4)
 
 ## User Story
